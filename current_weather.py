@@ -41,7 +41,7 @@ def weather_notification(title_text, text, icon):
     n.show()
 
 download_icons.dowload_icons()
-weather = get_weather(config.KYIVID)
+weather = get_weather(config.CITYID)
 city = weather[0]
 temperature = weather[1]
 weather_icon = weather[2]
