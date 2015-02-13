@@ -5,6 +5,7 @@ import requests
 import json
 
 import config
+import download_icons
 
 parentdir = os.path.dirname(os.path.realpath(__file__))
 current_time = time.strftime("%d_%m_%Y_%H_%M")
@@ -21,7 +22,6 @@ def save_current_weather(city_id):
 
 
 def get_weather(city_id):
-    icons_url = "http://openweathermap.org/img/w/"
     save_current_weather(city_id)
     with open(parentdir + "/data/" + city_id + "_" + current_time + ".json") as weather_file:
         weather_data = json.load(weather_file)
@@ -40,7 +40,7 @@ def weather_notification(title_text, text, icon):
     n = pynotify.Notification(title_text, text, icon)
     n.show()
 
-
+download_icons.dowload_icons()
 weather = get_weather(config.KYIVID)
 city = weather[0]
 temperature = weather[1]
