@@ -24,4 +24,4 @@ def dowload_icons():
             f.write(requests.get(base_icons_url + code[i] + ".png").content)
             f.close()
     except OSError:
-        print "Icons is already available!"
+        print "Icons are already available!"
